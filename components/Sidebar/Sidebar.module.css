@@ -1,0 +1,99 @@
+/* CSS Modules: all class names here are LOCAL to Sidebar.js only.
+   .sidebar here will NOT clash with any other .sidebar elsewhere */
+
+.sidebar {
+  width: 220px;
+  height: 100vh;              /* 100% of screen height */
+  background: var(--vt-surface);
+  border-right: 1px solid var(--vt-border);
+  display: flex;
+  flex-direction: column;     /* brand on top, nav in middle, user at bottom */
+  padding: 24px 16px;
+  position: fixed;            /* locked in place — doesn't scroll with page */
+  top: 0;
+  left: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.vtBadge {
+  background: var(--vt-purple);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+}
+
+.brandName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--vt-text);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;                    /* flex:1 pushes userSection to the bottom */
+}
+
+.navItem {
+  color: var(--vt-muted);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navItem:hover {
+  background: var(--vt-border);
+  color: var(--vt-text);
+}
+
+/* active = the page you're currently on */
+.navItemActive {
+  background: var(--vt-border);
+  color: var(--vt-purple-light);
+  font-weight: 600;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--vt-border);
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--vt-purple);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;             /* stops avatar from squishing */
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vt-text);
+}
+
+.userRole {
+  font-size: 11px;
+  color: var(--vt-muted);
+}

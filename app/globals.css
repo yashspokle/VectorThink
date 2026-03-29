@@ -1,49 +1,29 @@
+/* ── VectorThink Global Styles ── */
+/* These CSS variables are our design system.
+   Every component references these instead of hardcoding colors */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --vt-bg: #0e0d1a;         /* darkest — page background */
+  --vt-surface: #16152a;    /* slightly lighter — cards, sidebar */
+  --vt-border: #2a2850;     /* subtle borders between elements */
+  --vt-purple: #534AB7;     /* VT brand purple — buttons, badges */
+  --vt-purple-light: #7F77DD; /* lighter purple — big numbers, highlights */
+  --vt-teal: #1D9E75;       /* green accent — success, progress */
+  --vt-text: #e8e6f0;       /* main readable text */
+  --vt-muted: #6e6c88;      /* secondary text, labels */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+/* Reset — removes browser default spacing/sizing quirks */
+*, *::before, *::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body {
+  background: var(--vt-bg);
+  color: var(--vt-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
 }
