@@ -1,0 +1,66 @@
+.panel {
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+}
+
+.title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--vt-muted);
+  margin-bottom: 20px;
+}
+
+/* One row per signal */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Fixed width so all bars start at the same x position */
+.label {
+  font-size: 13px;
+  color: var(--vt-muted);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+/* Grey track behind the colored bar */
+.track {
+  flex: 1;
+  height: 6px;
+  background: var(--vt-border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+/* Colored fill — width set dynamically via style prop in JS */
+.fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.value {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vt-text);
+  width: 28px;
+  text-align: right;
+}
+
+/* Overall state badge at the bottom */
+.badge {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid;          /* color set dynamically in JS */
+}

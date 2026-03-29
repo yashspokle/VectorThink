@@ -1,16 +1,19 @@
-/* Layout: sidebar fixed on left, main fills the rest */
 .layout {
   display: flex;
   min-height: 100vh;
 }
 
 .main {
-  margin-left: 220px;         /* push content past the fixed sidebar */
+  margin-left: 220px;
   padding: 40px 36px;
-  flex: 1;                    /* take all remaining horizontal space */
+  flex: 1;
 }
 
+/* Greeting row — text left, clock right */
 .header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   margin-bottom: 32px;
 }
 
@@ -26,7 +29,20 @@
   font-size: 14px;
 }
 
-/* 4 equal columns, gaps between them */
+/* Live clock — top right of header */
+.clock {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vt-purple-light);
+  font-variant-numeric: tabular-nums; /* stops layout shifting as digits change */
+  letter-spacing: 1px;
+  padding: 10px 18px;
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 10px;
+}
+
+/* 4 equal stat cards */
 .statRow {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -34,7 +50,6 @@
   margin-bottom: 32px;
 }
 
-/* Individual stat card */
 .card {
   background: var(--vt-surface);
   border: 1px solid var(--vt-border);
@@ -43,6 +58,19 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  /* Slide up on load */
+  animation: slideUp 0.5s ease both;
+}
+
+/* Each card staggers slightly so they animate one after another */
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.10s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.20s; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .cardLabel {
@@ -56,14 +84,28 @@
   font-size: 30px;
   font-weight: 700;
   color: var(--vt-purple-light);
+  /* smooth number changes */
+  transition: all 0.1s ease;
 }
 
-/* Temporary placeholder — we'll replace this in the next step */
-.comingSoon {
+/* Rings left (60%), panel right (40%) */
+.twoCol {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+  /* Fade in after cards */
+  animation: fadeIn 0.6s ease 0.3s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sectionLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
   color: var(--vt-muted);
-  font-size: 13px;
-  padding: 24px;
-  border: 1px dashed var(--vt-border);
-  border-radius: 12px;
-  text-align: center;
+  margin-bottom: 14px;
 }
