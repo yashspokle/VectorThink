@@ -1,19 +1,17 @@
 /* ── VectorThink Global Styles ── */
-/* These CSS variables are our design system.
-   Every component references these instead of hardcoding colors */
+/* Rebuilt with black + red theme */
 
 :root {
-  --vt-bg: #0e0d1a;         /* darkest — page background */
-  --vt-surface: #16152a;    /* slightly lighter — cards, sidebar */
-  --vt-border: #2a2850;     /* subtle borders between elements */
-  --vt-purple: #534AB7;     /* VT brand purple — buttons, badges */
-  --vt-purple-light: #7F77DD; /* lighter purple — big numbers, highlights */
-  --vt-teal: #1D9E75;       /* green accent — success, progress */
-  --vt-text: #e8e6f0;       /* main readable text */
-  --vt-muted: #6e6c88;      /* secondary text, labels */
+  --vt-bg: #0a0a0a;           /* pure black background */
+  --vt-surface: #111111;      /* cards, sidebar — slightly lighter black */
+  --vt-border: #2a1a1a;       /* deep red-tinted border */
+  --vt-purple: #cc0000;       /* VT brand — now deep red */
+  --vt-purple-light: #ff3333; /* bright red — big numbers, highlights */
+  --vt-teal: #cc2200;         /* accent — dark red */
+  --vt-text: #f0eded;         /* near white text */
+  --vt-muted: #6b5f5f;        /* muted red-grey */
 }
 
-/* Reset — removes browser default spacing/sizing quirks */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;

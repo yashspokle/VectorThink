@@ -1,0 +1,114 @@
+.layout { display: flex; min-height: 100vh; }
+.main   { margin-left: 56px; padding: 40px 36px; flex: 1; }
+
+.header { margin-bottom: 28px; }
+.title  { font-size: 24px; font-weight: 700; color: var(--vt-text); margin-bottom: 6px; }
+.sub    { font-size: 14px; color: var(--vt-muted); }
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.miniStat {
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.miniVal   { font-size: 26px; font-weight: 700; color: var(--vt-purple-light); }
+.miniLabel { font-size: 11px; color: var(--vt-muted); text-transform: uppercase; letter-spacing: 0.6px; }
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chartCard {
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.chartTitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--vt-muted);
+  margin-bottom: 20px;
+}
+
+/* Bar chart */
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 160px;
+}
+
+.barCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.barVal   { font-size: 10px; color: var(--vt-muted); }
+.barDay   { font-size: 11px; color: var(--vt-muted); }
+
+.barTrack {
+  width: 100%;
+  flex: 1;
+  background: var(--vt-border);
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.barFill {
+  width: 100%;
+  background: var(--vt-purple);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.8s ease;
+  animation: growUp 0.8s ease both;
+}
+
+@keyframes growUp {
+  from { height: 0; }
+}
+
+/* Line chart canvas */
+.canvas { width: 100%; border-radius: 8px; }
+
+.trendFooter {
+  font-size: 13px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Subject breakdown */
+.subjectList { display: flex; flex-direction: column; gap: 14px; }
+
+.subjectRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.subName    { font-size: 13px; color: var(--vt-text); width: 140px; flex-shrink: 0; }
+.subTrack   { flex: 1; height: 6px; background: var(--vt-border); border-radius: 99px; overflow: hidden; }
+.subFill    { height: 100%; background: var(--vt-purple); border-radius: 99px; transition: width 0.8s ease; }
+.subMastery { font-size: 12px; font-weight: 600; width: 36px; text-align: right; }
+.subHours   { font-size: 12px; color: var(--vt-muted); width: 28px; text-align: right; }

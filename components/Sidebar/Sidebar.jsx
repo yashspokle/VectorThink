@@ -1,3 +1,6 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
 import styles from './Sidebar.module.css'
 
 const NAV_ITEMS = [
@@ -10,32 +13,42 @@ const NAV_ITEMS = [
 ]
 
 export default function Sidebar() {
-  return (
-    <aside className={styles.sidebar}>
+  const pathname = usePathname()
+  const expanded = pathname === '/'
 
-      {/* VT brand mark */}
+  return (
+    <aside className={`${styles.sidebar} ${expanded ? styles.expanded : styles.collapsed}`}>
+
       <div className={styles.brand}>
-        <span className={styles.vtBadge}>VT</span>
-        <span className={styles.brandName}>VectorThink</span>
+        <a href="/" className={styles.vtBadge}>VT</a>
+        {expanded && <span className={styles.brandName}>VectorThink</span>}
       </div>
 
-      {/* Nav links — one <a> per item, all on one line each */}
       <nav className={styles.nav}>
-        {NAV_ITEMS.map((item) => (
-          <a key={item.href} href={item.href} className={styles.navItem}>
-            {item.label}
-          </a>
-        ))}
+        {NAV_ITEMS.map((item) => {
+          const isActive = pathname === item.href
+          return (
+            <a key={item.href} href={item.href} title={!expanded ? item.label : ''} className={`${styles.navItem} ${isActive ? styles.active : ''}`}>
+              {/* Red left bar — only on active link */}
+              {isActive && <span className={styles.activeBar} />}
+              <span className={styles.dot} style={{ background: isActive ? '#cc0000' : 'transparent' }} />
+              {expanded && item.label}
+            </a>
+          )
+        })}
       </nav>
 
-      {/* User info at bottom */}
-      <div className={styles.userSection}>
-        <div className={styles.avatar}>Y</div>
-        <div>
-          <div className={styles.userName}>Yash</div>
-          <div className={styles.userRole}>Learner · B.Tech CSE</div>
+      {expanded && (
+        <div className={styles.userSection}>
+          <div className={styles.avatar}>Y</div>
+          <div>
+            <div className={styles.userName}>Yash</div>
+            <div className={styles.userRole}>Learner · B.Tech CSE</div>
+          </div>
         </div>
-      </div>
+      )}
+
+      {!expanded && <div className={styles.avatarCollapsed}>Y</div>}
 
     </aside>
   )

@@ -1,0 +1,85 @@
+.layout { display: flex; min-height: 100vh; }
+
+.main { margin-left: 56px; padding: 40px 36px; flex: 1; }
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.title { font-size: 24px; font-weight: 700; color: var(--vt-text); margin-bottom: 6px; }
+.sub   { font-size: 14px; color: var(--vt-muted); }
+
+.search {
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: var(--vt-text);
+  font-size: 14px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search:focus { border-color: var(--vt-purple); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.4s ease both;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover { border-color: var(--vt-purple); transform: translateY(-3px); }
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.subjectName { font-size: 15px; font-weight: 600; color: var(--vt-text); }
+.lastStudied { font-size: 11px; color: var(--vt-muted); }
+
+.cardMid { display: flex; align-items: center; gap: 16px; }
+
+.stats { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+.statLine { display: flex; justify-content: space-between; align-items: center; }
+.statLabel { font-size: 12px; color: var(--vt-muted); }
+.statVal   { font-size: 13px; font-weight: 600; color: var(--vt-text); }
+
+.track { height: 4px; background: var(--vt-border); border-radius: 99px; overflow: hidden; }
+.fill  { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
+
+.btn {
+  background: transparent;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+
+.btn:hover { background: #1a0a0a; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

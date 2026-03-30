@@ -1,0 +1,83 @@
+.layout { display: flex; min-height: 100vh; }
+
+.main {
+  margin-left: 56px;
+  padding: 40px 36px;
+  flex: 1;
+}
+
+.header { margin-bottom: 28px; }
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vt-text);
+  margin-bottom: 6px;
+}
+
+.sub { font-size: 14px; color: var(--vt-muted); }
+
+.summaryBar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.summaryPill {
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 10px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 110px;
+}
+
+.pillValue { font-size: 22px; font-weight: 700; }
+.pillLabel { font-size: 11px; color: var(--vt-muted); text-transform: uppercase; letter-spacing: 0.6px; }
+
+.unit { margin-bottom: 32px; animation: fadeUp 0.4s ease both; }
+
+.unitTitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--vt-muted);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.topicRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+  animation: fadeUp 0.4s ease both;
+}
+
+.topicRow:hover { border-color: var(--vt-purple); transform: translateX(4px); }
+.selected { border-color: var(--vt-purple) !important; background: #1a0a0a; }
+.locked { opacity: 0.4; cursor: default; }
+.locked:hover { border-color: var(--vt-border); transform: none; }
+
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.topicName { font-size: 14px; font-weight: 500; color: var(--vt-text); flex: 1; }
+
+.miniTrack { width: 80px; height: 5px; background: var(--vt-border); border-radius: 99px; overflow: hidden; }
+.miniFill { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
+
+.masteryNum { font-size: 12px; font-weight: 600; width: 36px; text-align: right; }
+.time { font-size: 12px; color: var(--vt-muted); width: 28px; text-align: right; }
+.pill { font-size: 11px; border: 1px solid; border-radius: 99px; padding: 3px 10px; white-space: nowrap; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
